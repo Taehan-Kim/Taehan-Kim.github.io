@@ -351,18 +351,62 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    .hero-main-title {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      text-shadow: 0 0 20px rgba(255,184,0,0.5);
+    }
+
+    .cta-title {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
     @media (max-width: 768px) {
       .story-container, .entities-container {
         flex-direction: column;
+        gap: 2rem;
       }
       .nav-links {
         display: none;
+      }
+      nav {
+        justify-content: center;
       }
       .story-text h2 {
         font-size: 2rem;
       }
       .hero-title-img {
-        width: 90%;
+        width: 100%;
+      }
+      .hero-main-title {
+        font-size: 2.5rem;
+      }
+      .hero-desc {
+        font-size: 1rem;
+      }
+      .cta-title {
+        font-size: 2rem;
+      }
+      .section {
+        padding: 4rem 5%;
+      }
+      .cta-section {
+        padding: 5rem 5%;
+      }
+      .btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-main-title {
+        font-size: 2rem;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -387,7 +431,7 @@
       
       <!-- Using s1.png since it contains the beautifully rendered text title "Sorcerer's Muffin" along with the main art -->
       <!-- Wait, s1.png is a screenshot with "Touch anywhere to start". main_title_a.png is just the art. Let's use CSS and standard text for title to be safe, or just use s1 as an img. Actually, I'll use text for accessibility. -->
-      <h1 style="font-size: 4rem; margin-bottom: 1rem; color: var(--primary); text-shadow: 0 0 20px rgba(255,184,0,0.5);">Sorcerer's Muffin</h1>
+      <h1 class="hero-main-title">Sorcerer's Muffin</h1>
       
       <p class="hero-desc">An epic isometric RPG adventure where muffins, magic, and mayhem collide.</p>
       <a href="#about" class="btn">Discover the Magic</a>
@@ -461,7 +505,7 @@
 
   <section class="cta-section">
     <div class="cta-content">
-      <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Ready to Save CHOCO?</h2>
+      <h2 class="cta-title">Ready to Save CHOCO?</h2>
       <p style="color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.1rem;">Sorcerer's Muffin is currently in active development exclusively for iOS. Stay tuned for release updates and beta testing opportunities.</p>
       <a href="#" class="btn">Join the Waitlist</a>
     </div>

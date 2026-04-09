@@ -120,7 +120,7 @@
 
     .hero-title-img {
       max-width: 90%;
-      width: 600px;
+      width: 450px;
       margin-bottom: 2rem;
       filter: drop-shadow(0 0 20px rgba(255,184,0,0.3));
     }
@@ -352,10 +352,8 @@
     }
 
     .hero-main-title {
-      font-size: 4rem;
       margin-bottom: 1rem;
-      color: var(--primary);
-      text-shadow: 0 0 20px rgba(255,184,0,0.5);
+      line-height: 0;
     }
 
     .cta-title {
@@ -429,9 +427,9 @@
     <div class="hero-content">
       <span class="platform-badge">iOS EXCLUSIVE - COMING SOON</span>
       
-      <!-- Using s1.png since it contains the beautifully rendered text title "Sorcerer's Muffin" along with the main art -->
-      <!-- Wait, s1.png is a screenshot with "Touch anywhere to start". main_title_a.png is just the art. Let's use CSS and standard text for title to be safe, or just use s1 as an img. Actually, I'll use text for accessibility. -->
-      <h1 class="hero-main-title">Sorcerer's Muffin</h1>
+      <h1 class="hero-main-title">
+        <img src="title_muffin.png" alt="Sorcerer's Muffin" class="hero-title-img">
+      </h1>
       
       <p class="hero-desc">An epic isometric RPG adventure where muffins, magic, and mayhem collide.</p>
       <a href="#about" class="btn">Discover the Magic</a>

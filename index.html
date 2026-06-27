@@ -9,12 +9,10 @@
 
     :root {
       --primary: #FFB800;
-      --primary-hover: #FFD147;
       --bg-dark: #0F1115;
       --bg-card: #181B21;
       --text-main: #E2E8F0;
       --text-muted: #94A3B8;
-      --accent: #00F0FF;
       --kpop-color: #FF4E9A;
       --note-color: #7C6EFA;
     }
@@ -23,667 +21,215 @@
 
     body {
       font-family: 'Outfit', sans-serif;
-      background-color: var(--bg-dark);
+      background: var(--bg-dark);
       color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    h1, h2, h3, h4 {
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
+    h1, h2, h3 { font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: 0.05em; }
 
-    /* Navigation */
+    /* Nav */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      position: fixed; top: 0; left: 0; right: 0;
       padding: 1rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(15, 17, 21, 0.9);
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(15,17,21,0.9); backdrop-filter: blur(12px);
+      z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: white;
-      font-family: 'Cinzel', serif;
-      font-size: 1.4rem;
-      font-weight: 900;
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: white;
+      font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 900;
     }
-
-    .logo img {
-      height: 38px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
+    .logo img { height: 38px; }
+    .nav-links { display: flex; gap: 2rem; }
     .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 600;
-      text-transform: uppercase;
-      font-size: 0.82rem;
-      letter-spacing: 0.1em;
-      transition: color 0.3s;
+      color: var(--text-muted); text-decoration: none;
+      font-weight: 600; text-transform: uppercase; font-size: 0.82rem;
+      letter-spacing: 0.1em; transition: color 0.3s;
     }
-
     .nav-links a:hover { color: var(--primary); }
 
-    /* ── Company Hero ── */
+    /* Hero */
     .company-hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 120px 20px 80px;
-      overflow: hidden;
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      padding: 120px 20px 60px; overflow: hidden;
     }
-
     .company-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: url('main_title_a.png') center/cover no-repeat;
-      opacity: 0.15;
-      z-index: -2;
-      filter: blur(3px) grayscale(40%);
-      transform: scale(1.05);
+      opacity: 0.12; z-index: -2; filter: blur(3px) grayscale(50%); transform: scale(1.05);
     }
-
     .company-hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: linear-gradient(to bottom, rgba(15,17,21,0.2) 0%, var(--bg-dark) 100%);
       z-index: -1;
     }
-
-    .company-hero-content {
-      max-width: 900px;
-      animation: fadeIn 1.2s ease-out;
+    .hero-content { max-width: 860px; animation: fadeIn 1.2s ease-out; }
+    .hero-logo { height: 72px; margin-bottom: 2rem; filter: drop-shadow(0 0 30px rgba(255,184,0,0.4)); }
+    .hero-tagline {
+      color: var(--primary); text-transform: uppercase;
+      letter-spacing: 0.3em; font-size: 0.85rem; font-weight: 600;
+      margin-bottom: 1.5rem; display: block;
     }
-
-    .company-hero-logo {
-      height: 70px;
-      margin-bottom: 2rem;
-      filter: drop-shadow(0 0 30px rgba(255,184,0,0.4));
-    }
-
-    .company-tagline {
-      font-size: 1rem;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.3em;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-
     .company-hero h1 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
+      font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 1.5rem;
       background: linear-gradient(135deg, #fff 30%, var(--primary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-
-    .company-hero p {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 3rem;
+    .company-hero > .hero-content > p {
+      font-size: 1.15rem; color: var(--text-muted);
+      max-width: 580px; margin: 0 auto 3rem;
     }
-
     .scroll-hint {
-      margin-top: 3rem;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      animation: bounce 2s infinite;
+      display: inline-block; color: var(--text-muted);
+      font-size: 0.82rem; letter-spacing: 0.15em;
+      text-transform: uppercase; text-decoration: none;
+      animation: bounce 2.2s ease-in-out infinite;
     }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 
-    /* ── Products Overview ── */
+    /* Products Section */
     .products-section {
-      padding: 6rem 5%;
-      background: var(--bg-card);
-      position: relative;
+      padding: 6rem 5%; background: var(--bg-card); position: relative;
     }
-
     .products-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 1px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
     }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
+    .section-header { text-align: center; margin-bottom: 4rem; }
     .section-subtitle {
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-      display: block;
+      color: var(--primary); text-transform: uppercase;
+      letter-spacing: 0.2em; font-size: 0.85rem;
+      font-weight: 600; margin-bottom: 0.8rem; display: block;
     }
-
-    .section-header h2 {
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-    }
+    .section-header h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
 
     .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; max-width: 1100px; margin: 0 auto;
     }
-
     .product-card {
-      background: var(--bg-dark);
-      border-radius: 16px;
-      overflow: hidden;
+      background: var(--bg-dark); border-radius: 16px; overflow: hidden;
       border: 1px solid rgba(255,255,255,0.05);
-      transition: all 0.4s;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      display: block;
+      transition: all 0.4s; text-decoration: none; color: inherit; display: block;
     }
-
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
-
+    .product-card:hover { transform: translateY(-8px); }
     .product-card.muffin:hover { border-color: rgba(255,184,0,0.3); box-shadow: 0 20px 40px rgba(255,184,0,0.1); }
-    .product-card.kpop:hover  { border-color: rgba(255,78,154,0.3); box-shadow: 0 20px 40px rgba(255,78,154,0.1); }
-    .product-card.note:hover  { border-color: rgba(124,110,250,0.3); box-shadow: 0 20px 40px rgba(124,110,250,0.1); }
+    .product-card.kpop:hover   { border-color: rgba(255,78,154,0.3); box-shadow: 0 20px 40px rgba(255,78,154,0.1); }
+    .product-card.note:hover   { border-color: rgba(124,110,250,0.3); box-shadow: 0 20px 40px rgba(124,110,250,0.1); }
 
-    .product-thumb {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      display: block;
-    }
-
+    .product-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
     .product-thumb-placeholder {
-      width: 100%;
-      aspect-ratio: 16/9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
+      width: 100%; aspect-ratio: 16/9;
+      display: flex; align-items: center; justify-content: center;
     }
+    .kpop-bg { background: linear-gradient(135deg, #1a0a10, #2d0e1e, #1a0a10); }
 
-    .product-thumb-placeholder.kpop-bg {
-      background: linear-gradient(135deg, #1a0a10, #2d0e1e, #1a0a10);
-    }
-
-    .product-card-body {
-      padding: 1.5rem;
-    }
-
+    .product-card-body { padding: 1.5rem; }
     .product-badge {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.75rem;
+      display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;
     }
+    .badge-live         { background: rgba(255,184,0,0.15); color: var(--primary); border: 1px solid rgba(255,184,0,0.3); }
+    .badge-soon         { background: rgba(255,78,154,0.12); color: var(--kpop-color); border: 1px solid rgba(255,78,154,0.3); }
+    .badge-soon-purple  { background: rgba(124,110,250,0.12); color: var(--note-color); border: 1px solid rgba(124,110,250,0.3); }
 
-    .badge-live    { background: rgba(255,184,0,0.15); color: var(--primary); border: 1px solid rgba(255,184,0,0.3); }
-    .badge-soon    { background: rgba(255,78,154,0.12); color: var(--kpop-color); border: 1px solid rgba(255,78,154,0.3); }
-    .badge-soon-purple { background: rgba(124,110,250,0.12); color: var(--note-color); border: 1px solid rgba(124,110,250,0.3); }
-
-    .product-card-body h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .product-card-body p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* ── Full-width product sections ── */
-    .product-section {
-      padding: 8rem 5%;
-      position: relative;
-    }
-
-    .product-section.kpop-section {
-      background: radial-gradient(ellipse at 80% 50%, rgba(255,78,154,0.06) 0%, transparent 60%), var(--bg-dark);
-    }
-
-    .product-section.note-section {
-      background: radial-gradient(ellipse at 20% 50%, rgba(124,110,250,0.06) 0%, transparent 60%), var(--bg-card);
-    }
-
-    .product-section.note-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-    }
-
-    .story-container {
-      display: flex;
-      align-items: center;
-      gap: 5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .story-container.reverse { flex-direction: row-reverse; }
-
-    .story-text { flex: 1; }
-    .story-image { flex: 1; }
-
-    .story-text h2 {
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-
-    .story-text p {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      margin-bottom: 1.2rem;
-    }
-
-    .story-image img {
-      width: 100%;
-      border-radius: 14px;
-      box-shadow: 0 24px 48px rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: transform 0.5s;
-    }
-
-    .story-image img:hover { transform: scale(1.02); }
-
-    /* Feature list */
-    .feature-list {
-      list-style: none;
-      margin: 1.5rem 0 2rem;
-    }
-
-    .feature-list li {
-      padding: 0.6rem 0;
-      color: var(--text-muted);
-      font-size: 1rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .feature-list li:last-child { border-bottom: none; }
-
-    .feature-icon {
-      font-size: 1.1rem;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    /* Coming soon badge */
-    .coming-soon-banner {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1.25rem;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 2rem;
-    }
-
-    .coming-soon-banner.kpop {
-      background: rgba(255,78,154,0.12);
-      color: var(--kpop-color);
-      border: 1px solid rgba(255,78,154,0.35);
-    }
-
-    .coming-soon-banner.note {
-      background: rgba(124,110,250,0.12);
-      color: var(--note-color);
-      border: 1px solid rgba(124,110,250,0.35);
-    }
-
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: currentColor;
-      animation: pulse 1.5s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.7); }
-    }
-
-    /* Screenshot gallery */
-    .screenshots-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 0.75rem;
-    }
-
-    .screenshots-grid img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.45);
-      border: 1px solid rgba(255,255,255,0.07);
-      transition: transform 0.4s, box-shadow 0.4s;
-      display: block;
-    }
-
-    .screenshots-grid img:first-child {
-      grid-column: 1 / -1;
-    }
-
-    .screenshots-grid img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 16px 36px rgba(124,110,250,0.25);
-    }
-
-    .snote-legal-links {
-      display: flex;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .snote-legal-links a {
-      color: var(--note-color);
-      font-size: 0.88rem;
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 1px solid rgba(124,110,250,0.3);
-      padding-bottom: 2px;
-      transition: color 0.3s, border-color 0.3s;
-    }
-
-    .snote-legal-links a:hover {
-      color: #a99fff;
-      border-color: #a99fff;
-    }
-
-    /* Sorcerer's Muffin section */
-    .muffin-section {
-      background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.05) 0%, transparent 60%), var(--bg-dark);
-    }
-
-    /* Gallery */
-    .gallery-section {
-      background: var(--bg-card);
-      padding: 6rem 5%;
-      position: relative;
-    }
-
-    .gallery-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .gallery-item {
-      border-radius: 8px;
-      overflow: hidden;
-      aspect-ratio: 16/9;
-      cursor: pointer;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s, filter 0.5s;
-      filter: brightness(0.8);
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-      filter: brightness(1.1);
-    }
-
-    /* Characters */
-    .characters-section {
-      padding: 6rem 5%;
-    }
-
-    .entities-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .entity-card {
-      flex: 1 1 180px;
-      max-width: 220px;
-      background: var(--bg-card);
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.03);
-      transition: all 0.3s;
-    }
-
-    .entity-card:hover {
-      border-color: rgba(255,184,0,0.3);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-
-    .entity-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: contain;
-      margin-bottom: 1rem;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-    }
-
-    /* KPop placeholder visual */
-    .kpop-placeholder {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: linear-gradient(135deg, #1a0a10 0%, #2d0e1e 50%, #1a0a10 100%);
-      border-radius: 14px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(255,78,154,0.15);
-      box-shadow: 0 24px 48px rgba(255,78,154,0.1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .kpop-placeholder::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 30%, rgba(255,78,154,0.2) 0%, transparent 60%);
-    }
-
-    .kpop-placeholder-text {
-      font-family: 'Cinzel', serif;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--kpop-color);
-      text-align: center;
-      line-height: 1.3;
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 0 40px rgba(255,78,154,0.6);
-      letter-spacing: 0.1em;
-    }
-
-    .kpop-placeholder-sub {
-      font-size: 0.85rem;
-      color: rgba(255,78,154,0.6);
-      margin-top: 0.5rem;
-      position: relative;
-      z-index: 1;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-    }
-
-    /* Appstore button */
-    .appstore-btn {
-      display: inline-block;
-      margin-top: 1.5rem;
-      transition: transform 0.3s ease, filter 0.3s ease;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
-    }
-
-    .appstore-btn:hover {
-      transform: translateY(-3px);
-      filter: drop-shadow(0 6px 12px rgba(255,255,255,0.2));
-    }
-
-    .appstore-btn img {
-      height: 44px;
-      display: block;
-    }
+    .product-card-body h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .product-card-body p  { color: var(--text-muted); font-size: 0.9rem; }
 
     /* Footer */
     footer {
-      background: #000;
-      padding: 4rem 5%;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      background: #000; padding: 3rem 5%;
+      text-align: center; border-top: 1px solid rgba(255,255,255,0.05);
     }
+    .footer-logo { height: 38px; margin-bottom: 1.5rem; opacity: 0.45; }
+    .footer-text { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; }
 
-    .footer-logo {
-      height: 44px;
-      margin-bottom: 1.5rem;
-      opacity: 0.5;
-    }
-
-    .footer-products {
+    /* MeowCow Shop button */
+    .meowcow-btn {
+      position: fixed;
+      top: 76px;
+      left: 20px;
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-products a {
-      color: var(--text-muted);
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      background: rgba(20, 22, 28, 0.75);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 10px 8px 8px;
+      width: 86px;
       text-decoration: none;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: color 0.3s;
+      transition: all 0.3s;
+      z-index: 999;
+      backdrop-filter: blur(8px);
+    }
+    .meowcow-btn:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    .meowcow-btn img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      display: block;
+    }
+    .meowcow-btn span {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 0.04em;
+      font-family: 'Outfit', sans-serif;
     }
 
-    .footer-products a:hover { color: var(--primary); }
-
-    .footer-text {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin-bottom: 0.4rem;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Responsive */
     @media (max-width: 900px) {
-      .story-container,
-      .story-container.reverse {
-        flex-direction: column;
-        gap: 2.5rem;
-      }
+      .products-grid { grid-template-columns: 1fr; }
     }
-
     @media (max-width: 768px) {
       .nav-links { display: none; }
       nav { justify-content: center; }
-      .screenshots-row { flex-direction: column; }
-      .products-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .product-section { padding: 5rem 5%; }
+      .meowcow-btn { top: 70px; left: 12px; width: 74px; }
+      .meowcow-btn img { width: 46px; height: 46px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── Navigation ── -->
   <nav>
-    <a href="#" class="logo">
+    <a href="/" class="logo">
       <img src="bladesoft.png" alt="BLADE SOFTWARE">
       BLADE SOFTWARE
     </a>
     <div class="nav-links">
       <a href="#products">Products</a>
-      <a href="#muffin">Sorcerer's Muffin</a>
-      <a href="#kpop">K-POP Star Maker</a>
-      <a href="#snote">Sorcerer's Note</a>
     </div>
   </nav>
 
-  <!-- ── Company Hero ── -->
+  <a href="https://meowcow.printful.me" class="meowcow-btn" target="_blank" rel="noopener">
+    <img src="MeowCow_white.png" alt="MeowCow">
+    <span>MeowCow Shop</span>
+  </a>
+
   <section class="company-hero">
-    <div class="company-hero-content">
-      <img src="company1.png" alt="BLADE SOFTWARE" class="company-hero-logo">
-      <p class="company-tagline">BLADE SOFTWARE</p>
+    <div class="hero-content">
+      <img src="company1.png" alt="BLADE SOFTWARE" class="hero-logo">
+      <span class="hero-tagline">BLADE SOFTWARE</span>
       <h1>We Craft Games &amp;<br>Powerful Tools</h1>
       <p>From epic mobile RPGs and vibrant K-POP music games to professional iPad productivity apps — we build experiences that spark creativity and delight.</p>
       <a href="#products" class="scroll-hint">▼ &nbsp; Explore Our Products</a>
     </div>
   </section>
 
-  <!-- ── Products Overview ── -->
   <section id="products" class="products-section">
     <div class="section-header">
       <span class="section-subtitle">Our Portfolio</span>
@@ -691,8 +237,7 @@
     </div>
     <div class="products-grid">
 
-      <!-- Sorcerer's Muffin -->
-      <a href="#muffin" class="product-card muffin">
+      <a href="/muffin/index.html" class="product-card muffin">
         <img src="main_title_a.png" alt="Sorcerer's Muffin" class="product-thumb">
         <div class="product-card-body">
           <span class="product-badge badge-live">Available on App Store</span>
@@ -701,10 +246,10 @@
         </div>
       </a>
 
-      <!-- K-POP Star Maker -->
-      <a href="#kpop" class="product-card kpop">
+      <a href="/starmaker/index.html" class="product-card kpop">
         <div class="product-thumb-placeholder kpop-bg">
-          <img src="kpop/Title_StarMaker.png" alt="K-POP Star Maker" style="max-width:75%;filter:drop-shadow(0 0 20px rgba(255,78,154,0.5));">
+          <img src="KPOP/Title_StarMaker.png" alt="K-POP Star Maker"
+               style="max-width:75%;filter:drop-shadow(0 0 20px rgba(255,78,154,0.5));">
         </div>
         <div class="product-card-body">
           <span class="product-badge badge-soon">Coming Soon</span>
@@ -713,9 +258,9 @@
         </div>
       </a>
 
-      <!-- Sorcerer's Note -->
-      <a href="#snote" class="product-card note">
-        <img src="SNote/NoteScene_1.png" alt="Sorcerer's Note" class="product-thumb" style="object-position: top;">
+      <a href="/snote/index.html" class="product-card note">
+        <img src="SNote/NoteScene_1.png" alt="Sorcerer's Note"
+             class="product-thumb" style="object-position:top;">
         <div class="product-card-body">
           <span class="product-badge badge-soon-purple">Coming Soon · iPad</span>
           <h3>Sorcerer's Note</h3>
@@ -726,178 +271,10 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════ -->
-  <!-- ── Sorcerer's Muffin ── -->
-  <!-- ══════════════════════════════════════ -->
-  <section id="muffin" class="product-section muffin-section">
-    <div class="story-container">
-      <div class="story-image">
-        <img src="story_3.png" alt="The Angry Sorcerer and CHOCO">
-      </div>
-      <div class="story-text">
-        <span class="section-subtitle">iOS Game</span>
-        <h2>Sorcerer's Muffin</h2>
-        <p>It was the perfect muffin — baked with the rarest magical ingredients. But before the sorcerer could take a single bite, <strong>CHOCO happened.</strong></p>
-        <p>The mischievous little dog devoured the legendary pastry in one gulp. Driven mad by rage, the sorcerer unleashed hordes of terrifying monsters upon the peaceful town!</p>
-        <p>Venture through chaotic isometric dungeons, battle monstrous legions across five hero classes, and rescue CHOCO in this epic RPG adventure.</p>
-        <a href="https://apps.apple.com/app/sorcerers-muffin/id6762327874" class="appstore-btn" target="_blank" rel="noopener noreferrer">
-          <img src="common/appstore_us_black.svg" alt="Download on the App Store">
-        </a>
-        <div style="margin-top:1rem;">
-          <a href="/privacy" style="color:var(--text-muted);font-size:0.85rem;text-decoration:none;border-bottom:1px solid rgba(148,163,184,0.3);padding-bottom:2px;transition:color 0.3s;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='var(--text-muted)'">Privacy Policy</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Muffin Gallery -->
-  <section class="gallery-section">
-    <div class="section-header">
-      <span class="section-subtitle">Gameplay</span>
-      <h2>Stunning Isometric Worlds</h2>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-item"><img src="s2.png" alt="Gameplay screenshot 1"></div>
-      <div class="gallery-item"><img src="s4.png" alt="Gameplay screenshot 2"></div>
-      <div class="gallery-item"><img src="s6.png" alt="Gameplay screenshot 3"></div>
-      <div class="gallery-item"><img src="s5.png" alt="Gameplay screenshot 4"></div>
-      <div class="gallery-item"><img src="s7.png" alt="Gameplay screenshot 5"></div>
-      <div class="gallery-item"><img src="s3.png" alt="Gameplay screenshot 6"></div>
-    </div>
-  </section>
-
-  <!-- Muffin Characters -->
-  <section class="characters-section">
-    <div class="section-header">
-      <span class="section-subtitle">Choose Your Hero</span>
-      <h2>Playable Classes</h2>
-    </div>
-    <div class="entities-container">
-      <div class="entity-card">
-        <img src="p_knight.png" alt="Knight">
-        <h3 style="margin-bottom:0.4rem;color:var(--primary);">Knight</h3>
-        <p style="color:var(--text-muted);font-size:0.85rem;">Frontline defender.</p>
-      </div>
-      <div class="entity-card">
-        <img src="p_magician.png" alt="Magician">
-        <h3 style="margin-bottom:0.4rem;color:var(--primary);">Magician</h3>
-        <p style="color:var(--text-muted);font-size:0.85rem;">Master of elements.</p>
-      </div>
-      <div class="entity-card">
-        <img src="p_hunter.png" alt="Hunter">
-        <h3 style="margin-bottom:0.4rem;color:var(--primary);">Hunter</h3>
-        <p style="color:var(--text-muted);font-size:0.85rem;">Ranged specialist.</p>
-      </div>
-      <div class="entity-card">
-        <img src="p_monk.png" alt="Monk">
-        <h3 style="margin-bottom:0.4rem;color:var(--primary);">Monk</h3>
-        <p style="color:var(--text-muted);font-size:0.85rem;">Melee martial artist.</p>
-      </div>
-      <div class="entity-card">
-        <img src="p_engineer.png" alt="Engineer">
-        <h3 style="margin-bottom:0.4rem;color:var(--primary);">Engineer</h3>
-        <p style="color:var(--text-muted);font-size:0.85rem;">Tactical inventor.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════ -->
-  <!-- ── K-POP STAR MAKER ── -->
-  <!-- ══════════════════════════════════════ -->
-  <section id="kpop" class="product-section kpop-section">
-    <div class="story-container reverse">
-      <div class="story-image">
-        <div class="kpop-placeholder">
-          <img src="kpop/Title_StarMaker.png" alt="K-POP Star Maker" style="max-width:80%;position:relative;z-index:1;filter:drop-shadow(0 0 30px rgba(255,78,154,0.5));">
-          <div class="kpop-placeholder-sub">Coming Soon</div>
-        </div>
-      </div>
-      <div class="story-text">
-        <div class="coming-soon-banner kpop">
-          <span class="pulse-dot"></span>
-          Coming Soon
-        </div>
-        <span class="section-subtitle" style="color:var(--kpop-color);">Mobile Game</span>
-        <h2 style="color:#fff;">K-POP<br>Star Maker</h2>
-        <p>Step into the dazzling world of K-POP and build your very own idol group from scratch. Discover hidden talent, produce chart-topping music, and design iconic stage performances.</p>
-        <p>Manage your artists through grueling training, viral moments, and global tours. The spotlight is yours — make every beat count.</p>
-        <ul class="feature-list">
-          <li><span class="feature-icon">🎤</span> Recruit and train your own K-POP idols</li>
-          <li><span class="feature-icon">🎵</span> Compose and produce original hit songs</li>
-          <li><span class="feature-icon">🌏</span> Launch world tours and dominate the charts</li>
-          <li><span class="feature-icon">✨</span> Design costumes, stages, and music videos</li>
-        </ul>
-        <p style="color:rgba(148,163,184,0.6);font-size:0.9rem;font-style:italic;">Artwork &amp; details coming soon. Stay tuned!</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════ -->
-  <!-- ── Sorcerer's Note ── -->
-  <!-- ══════════════════════════════════════ -->
-  <section id="snote" class="product-section note-section">
-    <div class="story-container">
-      <div class="story-image">
-        <div class="screenshots-grid">
-          <img src="SNote/NoteScene_1.png" alt="Sorcerer's Note – handwriting">
-          <img src="SNote/NoteScene_2.png" alt="Sorcerer's Note – PDF annotation">
-          <img src="SNote/NoteScene_3.png" alt="Sorcerer's Note – recording">
-        </div>
-      </div>
-      <div class="story-text">
-        <div class="coming-soon-banner note">
-          <span class="pulse-dot"></span>
-          Coming Soon · iPad
-        </div>
-        <span class="section-subtitle" style="color:var(--note-color);">iPad App</span>
-        <h2>Sorcerer's Note</h2>
-        <p>The most natural way to capture your thoughts on iPad — with the full power of pen, voice, and video, all in one place.</p>
-        <ul class="feature-list">
-          <li>
-            <span class="feature-icon"></span>
-            <span><strong style="color:var(--text-main);">Free-form Pen Notes</strong><br>
-            Write, sketch, and annotate freely with your Apple Pencil — just like paper, but smarter.</span>
-          </li>
-          <li>
-            <span class="feature-icon"></span>
-            <span><strong style="color:var(--text-main);">PDF Annotation</strong><br>
-            Import any PDF and write directly on top of it. Mark up documents, textbooks, or contracts with your own handwriting.</span>
-          </li>
-          <li>
-            <span class="feature-icon"></span>
-            <span><strong style="color:var(--text-main);">Record &amp; Write Simultaneously</strong><br>
-            Start a recording and take notes at the same time. Every stroke is time-synced to the audio so nothing gets lost.</span>
-          </li>
-          <li>
-            <span class="feature-icon"></span>
-            <span><strong style="color:var(--text-main);">Replay Your Sessions</strong><br>
-            Play back your entire note-taking session as a video — see every pen stroke re-drawn in sync with the audio, exactly as it happened.</span>
-          </li>
-          <li>
-            <span class="feature-icon"></span>
-            <span><strong style="color:var(--text-main);">Share &amp; Upload to YouTube</strong><br>
-            Export your session replay as a video and upload it to YouTube to create study materials, lecture recordings, or tutorials.</span>
-          </li>
-        </ul>
-        <div class="snote-legal-links">
-          <a href="/SNote/privacy.html">Privacy Policy</a>
-          <a href="/SNote/terms.html">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Footer ── -->
   <footer>
     <img src="company1.png" alt="BLADE SOFTWARE" class="footer-logo">
-    <div class="footer-products">
-      <a href="#muffin">Sorcerer's Muffin</a>
-      <a href="#kpop">K-POP Star Maker</a>
-      <a href="#snote">Sorcerer's Note</a>
-    </div>
     <p class="footer-text">&copy; 2026 BladeSoftware LLC. All rights reserved.</p>
-    <p class="footer-text">"Sorcerer's Muffin", "K-POP Star Maker", and "Sorcerer's Note" are trademarks of BladeSoftware.</p>
-    <p class="footer-text" style="margin-top:0.5rem;">contact: admin@bladesoft.io</p>
+    <p class="footer-text">contact: admin@bladesoft.io</p>
   </footer>
 
 </body>

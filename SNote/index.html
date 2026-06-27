@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorcerer's Note – BLADE SOFTWARE</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Outfit:wght@300;400;600;800&display=swap');
+
+    :root {
+      --primary: #7C6EFA;
+      --primary-light: #a99fff;
+      --bg-dark: #0F1115;
+      --bg-card: #181B21;
+      --text-main: #E2E8F0;
+      --text-muted: #94A3B8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Outfit', sans-serif; background: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+    h1,h2,h3 { font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: 0.05em; }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      padding: 1rem 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(15,17,21,0.88); backdrop-filter: blur(12px);
+      z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 900; }
+    .logo img { height: 34px; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* Hero */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      padding: 120px 20px 80px; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(124,110,250,0.15) 0%, transparent 65%);
+      z-index: -1;
+    }
+    .hero-content { max-width: 760px; animation: fadeIn 1.1s ease-out; }
+    .coming-soon-banner {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 1.4rem; border-radius: 30px;
+      background: rgba(124,110,250,0.12); color: var(--primary);
+      border: 1px solid rgba(124,110,250,0.4);
+      font-size: 0.88rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.8rem;
+    }
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: pulse 1.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+    .hero-subtitle { color: var(--primary); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; display: block; }
+    .hero h1 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 1.5rem; }
+    .hero-desc { font-size: 1.15rem; color: var(--text-muted); max-width: 560px; margin: 0 auto; }
+
+    /* Intro section */
+    .section { padding: 7rem 5%; }
+    .two-col {
+      display: flex; align-items: flex-start; gap: 5rem;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .two-col.reverse { flex-direction: row-reverse; }
+    .col-text { flex: 1; }
+    .col-image { flex: 1; }
+    .section-subtitle { color: var(--primary); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.8rem; display: block; }
+    .col-text h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1.2; margin-bottom: 1.2rem; }
+    .col-text p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1.2rem; }
+
+    /* Screenshots grid */
+    .screenshots-grid {
+      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto;
+      gap: 0.75rem;
+    }
+    .screenshots-grid img { width: 100%; border-radius: 10px; box-shadow: 0 12px 28px rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.07); transition: transform 0.4s, box-shadow 0.4s; display: block; }
+    .screenshots-grid img:first-child { grid-column: 1 / -1; }
+    .screenshots-grid img:hover { transform: scale(1.02); box-shadow: 0 16px 36px rgba(124,110,250,0.2); }
+
+    /* Feature list */
+    .feature-list { list-style: none; margin: 1.5rem 0 2rem; }
+    .feature-list li {
+      padding: 0.8rem 0; color: var(--text-muted); font-size: 1rem;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .feature-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .feature-list strong { color: var(--text-main); }
+
+    /* Legal links */
+    .legal-links { display: flex; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
+    .legal-links a {
+      color: var(--primary); font-size: 0.88rem; text-decoration: none;
+      font-weight: 600; border-bottom: 1px solid rgba(124,110,250,0.35);
+      padding-bottom: 2px; transition: color 0.3s, border-color 0.3s;
+    }
+    .legal-links a:hover { color: var(--primary-light); border-color: var(--primary-light); }
+
+    /* Full-width feature cards section */
+    .features-section {
+      background: var(--bg-card); padding: 7rem 5%; position: relative;
+    }
+    .features-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124,110,250,0.3), transparent);
+    }
+    .features-header { text-align: center; margin-bottom: 4rem; }
+    .features-header h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+    }
+    .feature-card {
+      background: var(--bg-dark); border-radius: 14px; padding: 2rem 1.5rem;
+      border: 1px solid rgba(124,110,250,0.08); transition: all 0.35s;
+    }
+    .feature-card:hover { border-color: rgba(124,110,250,0.3); transform: translateY(-5px); box-shadow: 0 12px 32px rgba(124,110,250,0.1); }
+    .feature-card .icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .feature-card h3 { font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .feature-card p { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* Footer */
+    footer { background: #000; padding: 3rem 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-logo { height: 36px; margin-bottom: 1.2rem; opacity: 0.45; }
+    .footer-products { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .footer-products a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; }
+    .footer-products a:hover { color: var(--primary); }
+    .footer-text { color: var(--text-muted); font-size: 0.82rem; margin-bottom: 0.3rem; }
+
+    @keyframes fadeIn { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+    @media (max-width: 900px) { .two-col, .two-col.reverse { flex-direction: column; gap: 2.5rem; } }
+    @media (max-width: 768px) {
+      .nav-links { display: none; } nav { justify-content: center; }
+      .screenshots-grid { grid-template-columns: 1fr; }
+      .screenshots-grid img:first-child { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <img src="../bladesoft.png" alt="BLADE SOFTWARE">
+      BLADE SOFTWARE
+    </a>
+    <div class="nav-links">
+      <a href="/#products">← All Products</a>
+      <a href="#overview">Overview</a>
+      <a href="#features">Features</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="coming-soon-banner">
+        <span class="pulse-dot"></span>
+        Coming Soon · iPad
+      </div>
+      <span class="hero-subtitle">iPad App</span>
+      <h1>Sorcerer's Note</h1>
+      <p class="hero-desc">The most natural way to capture your thoughts on iPad — with the full power of pen, voice, and video, all in one place.</p>
+    </div>
+  </section>
+
+  <!-- Overview: screenshots + intro -->
+  <section id="overview" class="section">
+    <div class="two-col">
+      <div class="col-image">
+        <div class="screenshots-grid">
+          <img src="../SNote/NoteScene_1.png" alt="Sorcerer's Note – handwriting">
+          <img src="../SNote/NoteScene_2.png" alt="Sorcerer's Note – PDF annotation">
+          <img src="../SNote/NoteScene_3.png" alt="Sorcerer's Note – recording">
+        </div>
+      </div>
+      <div class="col-text">
+        <span class="section-subtitle">iPad App</span>
+        <h2>Write, Record,<br>and Share</h2>
+        <p>Sorcerer's Note combines free-form handwriting, PDF annotation, audio recording, and video export into one seamless experience — designed from the ground up for iPad.</p>
+        <ul class="feature-list">
+          <li>
+            <span class="feature-icon">✏️</span>
+            <span><strong>Free-form Pen Notes</strong><br>Write, sketch, and annotate freely with your Apple Pencil — just like paper, but smarter.</span>
+          </li>
+          <li>
+            <span class="feature-icon">📄</span>
+            <span><strong>PDF Annotation</strong><br>Import any PDF and write directly on top of it. Mark up documents, textbooks, or contracts with your own handwriting.</span>
+          </li>
+          <li>
+            <span class="feature-icon">🎙️</span>
+            <span><strong>Record &amp; Write Simultaneously</strong><br>Start a recording and take notes at the same time. Every stroke is time-synced to the audio so nothing gets lost.</span>
+          </li>
+          <li>
+            <span class="feature-icon">▶️</span>
+            <span><strong>Replay Your Sessions</strong><br>Play back your entire note-taking session as a video — see every pen stroke re-drawn in sync with the audio, exactly as it happened.</span>
+          </li>
+          <li>
+            <span class="feature-icon">📤</span>
+            <span><strong>Share &amp; Upload to YouTube</strong><br>Export your session replay as a video and upload it to YouTube to create study materials, lecture recordings, or tutorials.</span>
+          </li>
+        </ul>
+        <div class="legal-links">
+          <a href="/snote/privacy.html">Privacy Policy</a>
+          <a href="/snote/terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature cards -->
+  <section id="features" class="features-section">
+    <div class="features-header">
+      <span class="section-subtitle">Key Features</span>
+      <h2>Everything in One App</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="icon">✏️</span>
+        <h3>Free-form Pen Notes</h3>
+        <p>Unlimited canvas for handwriting and sketching with your Apple Pencil.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">📄</span>
+        <h3>PDF Annotation</h3>
+        <p>Import PDFs and annotate them directly with your own handwriting.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">🎙️</span>
+        <h3>Audio Recording</h3>
+        <p>Record lectures or meetings while writing — every stroke is time-stamped to the audio.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">▶️</span>
+        <h3>Session Replay</h3>
+        <p>Watch your notes come to life as a video replay, stroke by stroke in perfect sync.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">📤</span>
+        <h3>YouTube Export</h3>
+        <p>Upload your session video directly to YouTube to share or archive your work.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <img src="../company1.png" alt="BLADE SOFTWARE" class="footer-logo">
+    <div class="footer-products">
+      <a href="/muffin/index.html">Sorcerer's Muffin</a>
+      <a href="/starmaker/index.html">K-POP Star Maker</a>
+      <a href="/snote/index.html">Sorcerer's Note</a>
+    </div>
+    <p class="footer-text">&copy; 2026 BladeSoftware LLC. All rights reserved.</p>
+    <p class="footer-text">contact: admin@bladesoft.io</p>
+  </footer>
+
+</body>
+</html>

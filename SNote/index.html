@@ -43,7 +43,12 @@
     }
     .hero::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 40%, rgba(124,110,250,0.15) 0%, transparent 65%);
+      background: url('ClassroomBack.png') center/cover no-repeat;
+      opacity: 0.32; z-index: -2; filter: blur(3px) grayscale(20%); transform: scale(1.05);
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(15,17,21,0.2) 0%, var(--bg-dark) 100%);
       z-index: -1;
     }
     .hero-content { max-width: 760px; animation: fadeIn 1.1s ease-out; }

@@ -44,28 +44,19 @@
     .hero::before {
       content: ''; position: absolute; inset: 0;
       background: url('iBoxerBackground.png') center/cover no-repeat;
-      opacity: 0.28; z-index: -2; filter: blur(2px); transform: scale(1.05);
+      opacity: 0.28; z-index: -2; filter: blur(3px); transform: scale(1.05);
     }
-    .hero::after {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 40%, rgba(255,59,48,0.20) 0%, transparent 60%),
-                  linear-gradient(to bottom, rgba(15,17,21,0.35) 0%, var(--bg-dark) 92%);
-      z-index: -1;
-    }
+<!--    .hero::after {-->
+<!--      content: ''; position: absolute; inset: 0;-->
+<!--      background: radial-gradient(ellipse at 50% 40%, rgba(255,59,48,0.20) 0%, transparent 60%),-->
+<!--                  linear-gradient(to bottom, rgba(15,17,21,0.35) 0%, var(--bg-dark) 92%);-->
+<!--      z-index: -1;-->
+<!--    }-->
     .hero-title-img {
       max-width: 92%; width: 560px;
       filter: drop-shadow(0 0 45px rgba(255,59,48,0.5));
       margin-bottom: 2.2rem;
       animation: fadeIn 1s ease-out;
-    }
-    .coming-soon-banner {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.5rem 1.4rem; border-radius: 30px;
-      background: rgba(255,59,48,0.12); color: var(--primary);
-      border: 1px solid rgba(255,59,48,0.4);
-      font-size: 0.9rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.15em;
-      margin-bottom: 2rem; animation: fadeIn 1.2s ease-out;
     }
     .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: pulse 1.5s ease-in-out infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
@@ -158,9 +149,10 @@
   <!-- Hero -->
   <section class="hero">
     <img src="iBoxerTitle.png" alt="iBoxer" class="hero-title-img">
-    <div class="coming-soon-banner">
-      <span class="pulse-dot"></span>
-      Coming Soon
+    <div class="store-content">
+        <a href="https://apps.apple.com/app/sorcerers-muffin/id6762327874" class="appstore-btn" target="_blank" rel="noopener">
+          <img src="../common/appstore_us_black.svg" alt="Download on the App Store">
+        </a>
     </div>
     <p class="hero-desc">Lace up your gloves and step into the ring. iBoxer is a fast, fist-pumping arcade boxing game — duck, weave, block, and land the knockout blow to become champion.</p>
   </section>
@@ -182,11 +174,11 @@
         <h3>Fast-Paced Bouts</h3>
         <p>Read your opponent, time your dodges, and unleash combos in adrenaline-fueled arcade rounds.</p>
       </div>
-      <div class="feature-card">
-        <span class="feature-icon">🏆</span>
-        <h3>Climb the Ranks</h3>
-        <p>Battle through a roster of colorful challengers and fight your way to the championship belt.</p>
-      </div>
+<!--      <div class="feature-card">-->
+<!--        <span class="feature-icon">🏆</span>-->
+<!--        <h3>Climb the Ranks</h3>-->
+<!--        <p>Battle through a roster of colorful challengers and fight your way to the championship belt.</p>-->
+<!--      </div>-->
       <div class="feature-card">
         <span class="feature-icon">🎨</span>
         <h3>Vibrant Style</h3>
@@ -210,8 +202,11 @@
 
   <!-- Notify -->
   <section class="notify-strip">
-    <h2>Launching Soon</h2>
-    <p>iBoxer is currently in development and awaiting App Store approval. More details — features, gameplay, and release date — coming soon. Stay tuned!</p>
+    <h2>Only for Apple iOS!</h2>
+    <p>iBoxer is currently available on AppStore for free.</p>
+    <a href="https://apps.apple.com/app/sorcerers-muffin/id6762327874" class="appstore-btn" target="_blank" rel="noopener">
+      <img src="../common/appstore_us_black.svg" alt="Download on the App Store">
+    </a>
     <br>
     <a href="/iboxer/privacy.html" class="privacy-link">Privacy Policy</a>
   </section>

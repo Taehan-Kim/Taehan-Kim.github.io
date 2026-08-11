@@ -52,19 +52,12 @@
       z-index: -1;
     }
     .hero-content { max-width: 760px; animation: fadeIn 1.1s ease-out; }
-    .coming-soon-banner {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.5rem 1.4rem; border-radius: 30px;
-      background: rgba(124,110,250,0.12); color: var(--primary);
-      border: 1px solid rgba(124,110,250,0.4);
-      font-size: 0.88rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.8rem;
-    }
-    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: pulse 1.5s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
     .hero-subtitle { color: var(--primary); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; display: block; }
     .hero h1 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 1.5rem; }
-    .hero-desc { font-size: 1.15rem; color: var(--text-muted); max-width: 560px; margin: 0 auto; }
+    .hero-desc { font-size: 1.15rem; color: var(--text-muted); max-width: 560px; margin: 0 auto 2.5rem; }
+    .appstore-btn { display: inline-block; transition: transform 0.3s, filter 0.3s; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
+    .appstore-btn:hover { transform: translateY(-3px); filter: drop-shadow(0 6px 12px rgba(124,110,250,0.35)); }
+    .appstore-btn img { height: 44px; display: block; }
 
     /* Intro section */
     .section { padding: 7rem 5%; }
@@ -166,13 +159,12 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
-      <div class="coming-soon-banner">
-        <span class="pulse-dot"></span>
-        Coming Soon · iPad
-      </div>
       <span class="hero-subtitle">iPad App</span>
       <h1>Sorcerer's Note</h1>
       <p class="hero-desc">The most natural way to capture your thoughts on iPad — with the full power of pen, voice, and video, all in one place.</p>
+      <a href="https://apps.apple.com/app/sorcerers-note/id6783602892" class="appstore-btn" target="_blank" rel="noopener">
+        <img src="../common/appstore_us_black.svg" alt="Download on the App Store">
+      </a>
     </div>
   </section>
 

@@ -43,8 +43,15 @@
     }
     .hero::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 40%, rgba(255,78,154,0.18) 0%, transparent 65%);
-      z-index: -1;
+      background: url('main_background_stage.png') center 30%/cover no-repeat;
+      image-rendering: pixelated;
+      opacity: 0.45; z-index: -2; transform: scale(1.04);
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(255,78,154,0.22) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(15,17,21,0.55) 0%, rgba(15,17,21,0.72) 45%, var(--bg-dark) 100%);
     }
     .hero-title-img {
       max-width: 90%; width: 520px;
@@ -86,9 +93,37 @@
     .feature-card h3 { font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main); }
     .feature-card p { color: var(--text-muted); font-size: 0.9rem; }
 
+    /* Gameplay showcase */
+    .gameplay-section { background: var(--bg-card); position: relative; }
+    .gameplay-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,78,154,0.3), transparent);
+    }
+    .gameplay { max-width: 1080px; margin: 0 auto; }
+    .gameplay-row { display: flex; align-items: center; gap: 4.5rem; margin-bottom: 6rem; }
+    .gameplay-row:last-child { margin-bottom: 0; }
+    .gameplay-row:nth-child(even) { flex-direction: row-reverse; }
+    .gameplay-shot { flex: 0 0 290px; display: flex; justify-content: center; }
+    .gameplay-shot img {
+      width: 100%; display: block; border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.55);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .gameplay-shot img:hover { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(255,78,154,0.18); }
+    .gameplay-text { flex: 1; }
+    .gameplay-text h3 { font-size: clamp(1.4rem, 2.4vw, 2rem); margin-bottom: 1rem; }
+    .gameplay-text p { color: var(--text-muted); font-size: 1.02rem; margin-bottom: 1.4rem; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      background: var(--primary-dim); color: var(--primary);
+      border: 1px solid rgba(255,78,154,0.25); border-radius: 20px;
+      padding: 0.3rem 0.9rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.03em;
+    }
+
     /* Notify strip */
     .notify-strip {
-      background: var(--bg-card); padding: 5rem 5%; text-align: center;
+      background: var(--bg-dark); padding: 5rem 5%; text-align: center;
       border-top: 1px solid rgba(255,255,255,0.05);
       position: relative;
     }
@@ -116,6 +151,11 @@
 
     @keyframes fadeIn { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
+    @media (max-width: 900px) {
+      .gameplay-row, .gameplay-row:nth-child(even) { flex-direction: column; gap: 2.2rem; margin-bottom: 4.5rem; text-align: center; }
+      .gameplay-shot { flex: 0 0 auto; max-width: 280px; margin: 0 auto; }
+      .tag-list { justify-content: center; }
+    }
     @media (max-width: 768px) {
       .nav-links { display: none; } nav { justify-content: center; }
       .hero-title-img { width: 90%; }
@@ -132,6 +172,7 @@
     <div class="nav-links">
       <a href="/#products">← All Products</a>
       <a href="#features">Features</a>
+      <a href="#gameplay">Gameplay</a>
     </div>
   </nav>
 
@@ -175,10 +216,101 @@
     </div>
   </section>
 
+  <!-- Gameplay showcase -->
+  <section id="gameplay" class="section gameplay-section">
+    <div class="section-header">
+      <span class="section-subtitle">Inside the Game</span>
+      <h2>How You Play</h2>
+    </div>
+    <div class="gameplay">
+
+      <div class="gameplay-row">
+        <div class="gameplay-shot">
+          <img src="office_en.png" alt="K-POP Star Maker – agency office">
+        </div>
+        <div class="gameplay-text">
+          <h3>Run Your Own Agency</h3>
+          <p>Your headquarters is the heart of everything. Move between the recording studio, the staff office, the practice room and the lounge — manage your capital, check the market, hold briefings, and push the calendar forward one week at a time.</p>
+          <div class="tag-list">
+            <span class="tag">Weekly Turns</span>
+            <span class="tag">Bank &amp; Capital</span>
+            <span class="tag">Market</span>
+            <span class="tag">Briefings</span>
+            <span class="tag">Mail &amp; Items</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gameplay-row">
+        <div class="gameplay-shot">
+          <img src="scout_en.png" alt="K-POP Star Maker – scouting a trainee">
+        </div>
+        <div class="gameplay-text">
+          <h3>Scout &amp; Train Your Idols</h3>
+          <p>Spend gold to scout new faces and read their potential at a glance. Every trainee has six stats and an overall grade — some are born performers, others need years of practice before they're ready for the stage.</p>
+          <div class="tag-list">
+            <span class="tag">Vocal</span>
+            <span class="tag">Dance</span>
+            <span class="tag">Diligence</span>
+            <span class="tag">Creativity</span>
+            <span class="tag">Stamina</span>
+            <span class="tag">Charm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gameplay-row">
+        <div class="gameplay-shot">
+          <img src="teams_en.png" alt="K-POP Star Maker – idol teams">
+        </div>
+        <div class="gameplay-text">
+          <h3>Build Groups That Debut</h3>
+          <p>Assemble your trainees into groups of any size — a duo, a trio, a full lineup. Take them from pre-debut through their first release and watch their buzz climb month after month as the fanbase grows.</p>
+          <div class="tag-list">
+            <span class="tag">Create Teams</span>
+            <span class="tag">Pre-debut → Debut</span>
+            <span class="tag">Buzz Rating</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gameplay-row">
+        <div class="gameplay-shot">
+          <img src="songs_en.png" alt="K-POP Star Maker – song library and player">
+        </div>
+        <div class="gameplay-text">
+          <h3>Produce &amp; Play Your Music</h3>
+          <p>Every group builds its own discography. Pick the tracks you want on rotation and listen to them right inside the game with a full player — shuffle, skip, and repeat your agency's greatest hits while you work.</p>
+          <div class="tag-list">
+            <span class="tag">Original Tracks</span>
+            <span class="tag">Per-Group Discography</span>
+            <span class="tag">In-Game Player</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gameplay-row">
+        <div class="gameplay-shot">
+          <img src="screen_en_4.png" alt="K-POP Star Maker – rhythm game and match-up mini games">
+        </div>
+        <div class="gameplay-text">
+          <h3>Mini Games &amp; Rewards</h3>
+          <p>Head down to the game room for a break from management. Tap along to your own songs in the rhythm game, or test your memory in Match-Up — and bring the rewards straight back to your agency.</p>
+          <div class="tag-list">
+            <span class="tag">Rhythm Game</span>
+            <span class="tag">Match-Up</span>
+            <span class="tag">In-Game Rewards</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Notify -->
   <section class="notify-strip">
     <h2>Launching Soon</h2>
-    <p>K-POP Star Maker is currently in development. More details — artwork, gameplay, and release date — coming soon. Stay tuned!</p>
+    <p>K-POP Star Maker is currently in development. The release date will be announced soon — stay tuned!</p>
     <br>
     <a href="/starmaker/privacy.html" class="privacy-link">Privacy Policy</a>
   </section>

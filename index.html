@@ -16,6 +16,7 @@
       --kpop-color: #FF4E9A;
       --note-color: #7C6EFA;
       --boxer-color: #FF3B30;
+      --tri-color: #4DD8FF;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -125,6 +126,7 @@
     .product-card.kpop:hover   { border-color: rgba(255,78,154,0.3); box-shadow: 0 20px 40px rgba(255,78,154,0.1); }
     .product-card.note:hover   { border-color: rgba(124,110,250,0.3); box-shadow: 0 20px 40px rgba(124,110,250,0.1); }
     .product-card.boxer:hover  { border-color: rgba(255,59,48,0.3); box-shadow: 0 20px 40px rgba(255,59,48,0.12); }
+    .product-card.tri:hover    { border-color: rgba(77,216,255,0.3); box-shadow: 0 20px 40px rgba(77,216,255,0.12); }
 
     .product-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
     .product-thumb-placeholder {
@@ -143,6 +145,7 @@
     .badge-soon         { background: rgba(255,78,154,0.12); color: var(--kpop-color); border: 1px solid rgba(255,78,154,0.3); }
     .badge-soon-purple  { background: rgba(124,110,250,0.12); color: var(--note-color); border: 1px solid rgba(124,110,250,0.3); }
     .badge-soon-red     { background: rgba(255,59,48,0.14); color: var(--boxer-color); border: 1px solid rgba(255,59,48,0.35); }
+    .badge-soon-cyan    { background: rgba(77,216,255,0.12); color: var(--tri-color); border: 1px solid rgba(77,216,255,0.3); }
 
     .product-card-body h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
     .product-card-body p  { color: var(--text-muted); font-size: 0.9rem; }
@@ -236,7 +239,7 @@
   <section id="products" class="products-section">
     <div class="section-header">
       <span class="section-subtitle">Our Portfolio</span>
-      <h2>Four Products, One Vision</h2>
+      <h2>Five Products, One Vision</h2>
     </div>
     <div class="products-grid">
 
@@ -277,6 +280,15 @@
           <span class="product-badge badge-soon-red">Available on App Store</span>
           <h3>iBoxer</h3>
           <p>Step into the ring for fast, fist-pumping arcade boxing. Duck, weave, and land the knockout blow.</p>
+        </div>
+      </a>
+
+      <a href="/tricrush/index.html" class="product-card tri">
+        <img src="tricrush/wide.png" alt="TriCrush" class="product-thumb">
+        <div class="product-card-body">
+          <span class="product-badge badge-soon-cyan">Coming Soon</span>
+          <h3>TriCrush</h3>
+          <p>A cosmic triangle block puzzle. Crush the board and journey from planet to planet across the galaxy.</p>
         </div>
       </a>
 

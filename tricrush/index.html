@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TriCrush – BLADE SOFTWARE</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Outfit:wght@300;400;600;800&display=swap');
+
+    :root {
+      --primary: #4DD8FF;
+      --primary-dim: rgba(77,216,255,0.14);
+      --accent: #C77DFF;
+      --bg-dark: #0B0D14;
+      --bg-card: #14172099;
+      --bg-card-solid: #161A24;
+      --text-main: #E2E8F0;
+      --text-muted: #94A3B8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Outfit', sans-serif; background: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+    h1,h2,h3 { font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: 0.05em; }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      padding: 1rem 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(11,13,20,0.88); backdrop-filter: blur(12px);
+      z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 900; }
+    .logo img { height: 34px; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* Hero */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      padding: 120px 20px 80px; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('wide.png') center/cover no-repeat;
+      opacity: 0.85; z-index: -2; transform: scale(1.04);
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse 55% 45% at 50% 46%, rgba(11,13,20,0.78) 0%, rgba(11,13,20,0.42) 55%, transparent 78%),
+        radial-gradient(ellipse at 50% 38%, rgba(77,216,255,0.12) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(11,13,20,0.45) 0%, rgba(11,13,20,0.18) 35%, rgba(11,13,20,0.55) 78%, var(--bg-dark) 100%);
+    }
+    .hero-content { max-width: 720px; animation: fadeIn 1.1s ease-out; }
+    .hero h1 { line-height: 0; margin-bottom: 1.4rem; }
+    .hero-title-img {
+      width: 560px; max-width: 92%; display: block; margin: 0 auto;
+      filter: drop-shadow(0 0 34px rgba(77,216,255,0.4));
+    }
+    .hero-tagline {
+      display: block; color: var(--text-main);
+      text-transform: uppercase; letter-spacing: 0.22em;
+      font-size: clamp(0.72rem, 1.7vw, 0.92rem); font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    .coming-soon-banner {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 1.4rem; border-radius: 30px;
+      background: var(--primary-dim); color: var(--primary);
+      border: 1px solid rgba(77,216,255,0.4);
+      font-size: 0.9rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.15em;
+      margin-bottom: 2rem; animation: fadeIn 1.2s ease-out;
+    }
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: pulse 1.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+    .hero-desc { font-size: 1.15rem; color: var(--text-muted); max-width: 560px; margin: 0 auto; animation: fadeIn 1.3s ease-out; }
+
+    /* Sections */
+    .section { padding: 7rem 5%; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-subtitle { color: var(--primary); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.8rem; display: block; }
+    .section-header h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+
+    /* Key art + intro */
+    .two-col { display: flex; align-items: center; gap: 5rem; max-width: 1080px; margin: 0 auto; }
+    .col-art { flex: 0 0 330px; }
+    .col-art img {
+      width: 100%; display: block; border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .col-art img:hover { transform: translateY(-6px); box-shadow: 0 26px 60px rgba(77,216,255,0.2); }
+    .col-text { flex: 1; }
+    .col-text h2 { font-size: clamp(1.6rem, 2.8vw, 2.4rem); line-height: 1.25; margin-bottom: 1.2rem; }
+    .col-text p { color: var(--text-muted); font-size: 1.02rem; margin-bottom: 1.2rem; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.8rem; }
+    .tag {
+      background: var(--primary-dim); color: var(--primary);
+      border: 1px solid rgba(77,216,255,0.25); border-radius: 20px;
+      padding: 0.3rem 0.9rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.03em;
+    }
+
+    /* Features */
+    .features-section { background: var(--bg-card-solid); position: relative; }
+    .features-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(77,216,255,0.35), transparent);
+    }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+    }
+    .feature-card {
+      background: var(--bg-dark); border-radius: 14px; padding: 2rem 1.5rem;
+      border: 1px solid rgba(77,216,255,0.08); transition: all 0.35s;
+    }
+    .feature-card:hover { border-color: rgba(77,216,255,0.3); transform: translateY(-5px); box-shadow: 0 12px 32px rgba(77,216,255,0.1); }
+    .feature-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .feature-card h3 { font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main); }
+    .feature-card p { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* Notify strip */
+    .notify-strip {
+      background: var(--bg-dark); padding: 5rem 5%; text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05); position: relative;
+    }
+    .notify-strip::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(77,216,255,0.3), transparent);
+    }
+    .notify-strip h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1rem; }
+    .notify-strip p { color: var(--text-muted); font-size: 1.05rem; max-width: 520px; margin: 0 auto; }
+    .privacy-link {
+      display: inline-block; margin-top: 2rem;
+      color: var(--primary); font-size: 0.88rem; text-decoration: none; font-weight: 600;
+      border-bottom: 1px solid rgba(77,216,255,0.35); padding-bottom: 2px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .privacy-link:hover { color: #9ae9ff; border-color: #9ae9ff; }
+
+    /* Footer */
+    footer { background: #000; padding: 3rem 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-logo { height: 36px; margin-bottom: 1.2rem; opacity: 0.45; }
+    .footer-products { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .footer-products a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; }
+    .footer-products a:hover { color: var(--primary); }
+    .footer-text { color: var(--text-muted); font-size: 0.82rem; margin-bottom: 0.3rem; }
+
+    @keyframes fadeIn { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+    @media (max-width: 900px) {
+      .two-col { flex-direction: column; gap: 2.5rem; text-align: center; }
+      .col-art { flex: 0 0 auto; max-width: 300px; margin: 0 auto; }
+      .tag-list { justify-content: center; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; } nav { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <img src="../bladesoft.png" alt="BLADE SOFTWARE">
+      BLADE SOFTWARE
+    </a>
+    <div class="nav-links">
+      <a href="/#products">← All Products</a>
+      <a href="#overview">Overview</a>
+      <a href="#features">Features</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1><img src="MainTitle.png" alt="TriCrush" class="hero-title-img"></h1>
+      <span class="hero-tagline">The Cosmic Puzzle Crush Challenge</span>
+      <div class="coming-soon-banner">
+        <span class="pulse-dot"></span>
+        Coming Soon
+      </div>
+      <p class="hero-desc">A triangle block puzzle set among the stars. Fit the pieces, crush the board, and travel from one planet to the next.</p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section id="overview" class="section">
+    <div class="two-col">
+      <div class="col-art">
+        <img src="g1.png" alt="TriCrush – key art">
+      </div>
+      <div class="col-text">
+        <span class="section-subtitle">The Journey</span>
+        <h2>Crush Your Way<br>Across the Galaxy</h2>
+        <p>TriCrush swaps the usual squares for triangles. Every piece is a cluster of prismatic triangular blocks, and every board is a puzzle of angles — rotate your thinking, slot them into place, and watch entire rows shatter into stardust.</p>
+        <p>Each solved board carries you further into deep space. Chart a course from planet to planet, with new worlds, new colors, and new arrangements waiting at every stop along the way.</p>
+        <div class="tag-list">
+          <span class="tag">Triangle Blocks</span>
+          <span class="tag">Space Theme</span>
+          <span class="tag">Planet to Planet</span>
+          <span class="tag">Single Player</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section features-section">
+    <div class="section-header">
+      <span class="section-subtitle">What Awaits You</span>
+      <h2>A Puzzle With New Angles</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">🔺</span>
+        <h3>Triangular Blocks</h3>
+        <p>Not your usual grid. Triangle pieces lock together in six directions, so every placement opens — or closes — a different path.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💥</span>
+        <h3>Crush &amp; Cascade</h3>
+        <p>Complete a line and the blocks burst apart in a shower of light. Set up the board right and one move can bring down the rest.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🪐</span>
+        <h3>Travel the Planets</h3>
+        <p>Clear a world and move on to the next. Every planet brings its own palette, its own layout, and its own challenge.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🌌</span>
+        <h3>Cosmic Atmosphere</h3>
+        <p>Nebulae, starfields, and gem-cut blocks that catch the light — a puzzle board that feels like a window into deep space.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notify -->
+  <section class="notify-strip">
+    <h2>Launching Soon</h2>
+    <p>TriCrush is currently in development. The release date will be announced soon — stay tuned!</p>
+    <br>
+    <a href="/tricrush/privacy.html" class="privacy-link">Privacy Policy</a>
+  </section>
+
+  <footer>
+    <img src="../company1.png" alt="BLADE SOFTWARE" class="footer-logo">
+    <div class="footer-products">
+      <a href="/muffin/index.html">Sorcerer's Muffin</a>
+      <a href="/starmaker/index.html">K-POP Star Maker</a>
+      <a href="/SNote/index.html">Sorcerer's Note</a>
+      <a href="/tricrush/index.html">TriCrush</a>
+    </div>
+    <p class="footer-text">&copy; 2026 BladeSoftware LLC. All rights reserved.</p>
+    <p class="footer-text">contact: admin@bladesoft.io</p>
+  </footer>
+
+</body>
+</html>
